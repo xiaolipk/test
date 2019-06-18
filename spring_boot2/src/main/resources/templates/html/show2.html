@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"></meta>
+<title>Hello</title>
+</head>
+<body>
+	<h1 th:text="${message}">你好</h1>
+	<h1 th:text="${user.name}"></h1>
+	<h1 th:text="${user.pwd}"></h1>
+<!-- /*	<h1 th:text="${user.address}"></h1> */-->
+	
+	<div th:object="${user}">
+	       <p th:text="*{name}"></p>
+		   <p th:text="*{address}"></p>
+		   <p th:text="*{name}"></p>
+	</div>
+	
+	e.g.
+	<a href="#" th:href="@{https://www.baidu.com}">thymeleaf</a>
+	<br><br>
+	equals：
+	<a href="http://www.baidu.html">thymeleaf</a>
+	<img src="/img/wnppt.png" th:src="@{/img/wnppt3.png}" style="width:200px"/>
+	
+		e.g.
+	<a th:href="@{/order/details(id=3)}">访问</a>
+	equals：
+	<a href="/order/details?id=3">访问</a>
+	
+	
+	<p>if/unless</p>
+	<a th:if="${iffalse=='false'}">百度</a>
+	<a th:unless="${iffalse=='true'}">新浪</a>
+	
+	<table border=1>
+		<tr>
+			 <th>编号</th>
+			 <th>名字</th>
+			 <th>密码</th>
+			 <th> 地址</th>
+		 </tr>
+		 <tr th:each="user1,iterStat : ${list}">
+			 <td th:text="${user1.id}"></td>
+			 <td th:text="${user1.name}">6</td>
+			 <td th:text="${user1.pwd}">213</td>
+			 <td th:text="${user1.address}">213</td>
+			 <td th:text="${iterStat.current}">213</td>
+ 		</tr>
+ 		</table>
+ 		<form>
+		<!-- 提交数据给服务器，不会将name发送 -->
+		<input type="text" th:attr="value=${user2.name}" readonly="readonly">
+		<input type="text" value="小花" readonly="readonly">
+		<button type="button" th:onclick="show()">提交</button>
+	</form>
+	<h3>hello,[[${user.name}]]</h3>
+	
+	<script>
+		function show(){
+			alert();
+		}
+	</script>
+	
+	<!-- 内联的基本语法1 --> <p>Hello, [[${message}]]!</p>
+	<!-- 内联的基本语法2 --> <p>Hello, [(${message})]!</p>
+    <!-- 禁⽌止内联 --> <p th:inline ="none">Hello, [(${message})]!</p> 
+<!-- 	 序列化 -->
+         <script th:inline="javascript">    
+         var username = /*[[${user}]]*/ "JavaBean";    
+         console.info(username); 
+         </script>
+         
+</body>
+</html>

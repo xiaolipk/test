@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: spring_boot01
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: lenovo
+Implementation-Vendor-Id: com.project.pk
+Build-Jdk: 1.8.0_191
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/spring_boot01
+Created-By: Maven Integration for Eclipse
+

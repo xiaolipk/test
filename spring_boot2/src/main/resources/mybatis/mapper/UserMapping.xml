@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.dao.IUserDao">
+	<select id="findAll" resultMap="map">
+		select * from t_user;
+	</select>	
+	
+	<select id="findByName" parameterType="String" resultMap="map">
+		select * from t_user where u_username=#{0};
+	</select>
+	
+	<resultMap id="map" type="com.project.bean.UserBean">
+		<id property="id" column="u_id"></id>
+		<result property="name" column="u_username"></result>
+		<result property="pwd" column="u_password"></result>
+	</resultMap>
+	
+</mapper>

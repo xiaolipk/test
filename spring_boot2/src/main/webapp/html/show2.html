@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"></meta>
+<title>Hello</title>
+</head>
+<body>
+	<h1 th:text=$"{message}">你好</h1>
+		e.g.
+	<a href="#" th:href="@{https://www.baidu.com}">thymeleaf</a>
+	
+	<img src="/img/wnppt.png" th:src="@{/img/wnppt3.png}" style="width:200px"/>
+	
+		e.g.
+	<a th:href="@{/order/details(id=3)}">访问</a>
+	equals：
+	<a href="/order/details?id=3">访问</a>
+	
+	<form>
+		<!-- 提交数据给服务器，不会将name发送 -->
+		<input type="text" th:attr="value=${user.name}" readonly="readonly">
+		<input type="text" th:value="${user.address}" readonly="readonly">
+		<button type="button" th:onclick="show()">提交</button>
+	</form>
+	
+	
+	<h3>hello,[[${user.name}]]</h3>
+	
+	<script>
+		function show(){
+			alert();
+		}
+	</script>
+</body>
+</html>
